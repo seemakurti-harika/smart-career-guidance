@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Career Guidance</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Top Navigation -->
+    <div class="topbar">
+      <div class="app-name">Career Guidance</div>
+
+      <div class="profile-menu">
+        <div class="avatar" onclick="toggleMenu()">H</div>
+
+        <div class="dropdown" id="dropdown">
+          <form action="/logout" method="get">
+            <button type="submit">Logout</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+      <form action="/result" method="POST">
+        <h2>Career Guidance System</h2>
+
+        <label>Your Name</label>
+        <input type="text" name="name" required />
+
+        <label>Select Your Skills</label>
+        <div class="skill-group">
+          <input type="checkbox" name="skills" value="HTML" /> HTML<br />
+          <input type="checkbox" name="skills" value="CSS" /> CSS<br />
+          <input type="checkbox" name="skills" value="JavaScript" />
+          JavaScript<br />
+          <input type="checkbox" name="skills" value="Python" /> Python<br />
+          <input type="checkbox" name="skills" value="SQL" /> SQL<br />
+        </div>
+
+        <button type="submit">Get Career Suggestion</button>
+      </form>
+    </div>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("dropdown").classList.toggle("show");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Career Result</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <form>
+      <h2>Hello {{ name }}</h2>
+
+      <h3>Career Path: {{ career }}</h3>
+
+      <p><strong>Your Skills:</strong></p>
+      <ul>
+        {% for s in skills %}
+        <li>{{ s }}</li>
+        {% endfor %}
+      </ul>
+
+      <p><strong>Skills to Learn (Skill Gap):</strong></p>
+      <ul>
+        {% for gap in skill_gap %}
+        <li>{{ gap }}</li>
+        {% endfor %}
+      </ul>
+
+      <p><strong>Recommended Roadmap:</strong></p>
+      <ul>
+        {% for step in roadmap %}
+        <li>{{ step }}</li>
+        {% endfor %}
+      </ul>
+
+      <a href="/">Go Back</a>
+    </form>
+  </body>
+</html>

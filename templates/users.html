@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All Users</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <form style="max-width: 800px">
+      <h2>All Users History</h2>
+
+      <table border="1" width="100%" cellpadding="8">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Skills</th>
+          <th>Career</th>
+          <th>Skill Gap</th>
+        </tr>
+
+        {% for user in users %}
+        <tr>
+          <td>{{ user[0] }}</td>
+          <td>{{ user[1] }}</td>
+          <td>{{ user[2] }}</td>
+          <td>{{ user[3] }}</td>
+          <td>{{ user[4] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <br />
+      <a href="/">Go Back</a>
+    </form>
+  </body>
+</html>
