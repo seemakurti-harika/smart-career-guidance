@@ -8,33 +8,56 @@
     />
   </head>
   <body>
-    <form>
-      <h2>Hello {{ name }}</h2>
+    <div class="topbar">
+      <div class="app-name">Career Guidance</div>
+      <a href="/" class="theme-btn">⬅ Back</a>
+    </div>
 
-      <h3>Career Path: {{ career }}</h3>
+    <div class="container">
+      <div class="card">
+        <h2>Hello {{ name }}</h2>
+        <p class="subtitle">Recommended Career Path</p>
+        <h3>{{ career }}</h3>
+      </div>
 
-      <p><strong>Your Skills:</strong></p>
-      <ul>
-        {% for s in skills %}
-        <li>{{ s }}</li>
-        {% endfor %}
-      </ul>
+      <div class="card">
+        <h3>Your Skills</h3>
+        <div class="skills">
+          {% for s in skills %}
+          <span class="skill-box">{{ s }}</span>
+          {% endfor %}
+        </div>
+      </div>
 
-      <p><strong>Skills to Learn (Skill Gap):</strong></p>
-      <ul>
-        {% for gap in skill_gap %}
-        <li>{{ gap }}</li>
-        {% endfor %}
-      </ul>
+      <div class="card">
+        <h3>Skill Gap</h3>
+        {% if skill_gap %}
+        <ul>
+          {% for g in skill_gap %}
+          <li>{{ g }}</li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p>No skill gaps 🎉</p>
+        {% endif %}
+      </div>
 
-      <p><strong>Recommended Roadmap:</strong></p>
-      <ul>
-        {% for step in roadmap %}
-        <li>{{ step }}</li>
-        {% endfor %}
-      </ul>
-
-      <a href="/">Go Back</a>
-    </form>
+      <div class="card">
+        <h3>Learning Roadmap</h3>
+        <div class="timeline">
+          {% for step in roadmap %}
+          <div class="timeline-item">
+            <span></span>
+            <p>{{ step }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <script>
+      function toggleTheme() {
+        document.body.classList.toggle("dark");
+      }
+    </script>
   </body>
 </html>
