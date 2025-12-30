@@ -8,12 +8,12 @@
     />
   </head>
   <body>
-    <!-- Top Navigation -->
     <div class="topbar">
       <div class="app-name">Career Guidance</div>
 
       <div class="profile-menu">
         <div class="avatar" onclick="toggleMenu()">H</div>
+        <button class="theme-btn" onclick="toggleTheme()">🌙</button>
 
         <div class="dropdown" id="dropdown">
           <form action="/logout" method="get">
@@ -23,31 +23,48 @@
       </div>
     </div>
 
-    <!-- Main Content -->
     <div class="container">
-      <form action="/result" method="POST">
+      <div class="card">
         <h2>Career Guidance System</h2>
+        <p class="subtitle">
+          Select your skills to receive a personalized career roadmap
+        </p>
 
-        <label>Your Name</label>
-        <input type="text" name="name" required />
+        <form action="/result" method="POST">
+          <label>Your Name</label>
+          <input type="text" name="name" required />
 
-        <label>Select Your Skills</label>
-        <div class="skill-group">
-          <input type="checkbox" name="skills" value="HTML" /> HTML<br />
-          <input type="checkbox" name="skills" value="CSS" /> CSS<br />
-          <input type="checkbox" name="skills" value="JavaScript" />
-          JavaScript<br />
-          <input type="checkbox" name="skills" value="Python" /> Python<br />
-          <input type="checkbox" name="skills" value="SQL" /> SQL<br />
-        </div>
+          <label>Select Your Skills</label>
+          <div class="skills">
+            <label class="skill-box">
+              <input type="checkbox" name="skills" value="HTML" /> HTML
+            </label>
+            <label class="skill-box">
+              <input type="checkbox" name="skills" value="CSS" /> CSS
+            </label>
+            <label class="skill-box">
+              <input type="checkbox" name="skills" value="JavaScript" />
+              JavaScript
+            </label>
+            <label class="skill-box">
+              <input type="checkbox" name="skills" value="Python" /> Python
+            </label>
+            <label class="skill-box">
+              <input type="checkbox" name="skills" value="SQL" /> SQL
+            </label>
+          </div>
 
-        <button type="submit">Get Career Suggestion</button>
-      </form>
+          <button type="submit">Generate Career Roadmap</button>
+        </form>
+      </div>
     </div>
 
     <script>
       function toggleMenu() {
         document.getElementById("dropdown").classList.toggle("show");
+      }
+      function toggleTheme() {
+        document.body.classList.toggle("dark");
       }
     </script>
   </body>
